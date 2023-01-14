@@ -1,3 +1,9 @@
 [build]
   command = "pip install -r requirements.txt && FLASK_APP=main.py FLASK_ENV=production flask run"
-  publish = "mass-market"
+  publish = "templates"
+  functions = "lambda"
+  [build.environment]
+    FLASK_APP = "main.py"
+    FLASK_ENV = "production"
+  [build.settings]
+    redirects = ["/ /index.html 200"]
